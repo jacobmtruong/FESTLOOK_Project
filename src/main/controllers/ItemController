@@ -1,0 +1,98 @@
+package com.example.festlook.controllers;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.festlook.models.Item;
+import com.example.festlook.models.Look;
+import com.example.festlook.models.User;
+import com.example.festlook.services.ItemService;
+import com.example.festlook.services.LookService;
+import com.example.festlook.services.UserService;
+
+@Controller
+public class ItemController {
+	@Autowired
+	ItemService itemService;
+
+	@Autowired
+	LookService lookService;
+
+	@Autowired
+	UserService userService;
+	
+	
+	// --- ADD NEW ITEM ---
+
+	@GetMapping("/add/item/look/{id}")
+	public String addItemPage(@ModelAttribute("item") Item item, @PathVariable("id") Long lookId, Model model,
+			HttpSession session) {
+		Long sessionUser = (Long) session.getAttribute("user_id");
+
+		if (sessionUser == null)
+			return "redirect:/user/login";
+		else {
+			Look thisLook = lookService.findOneLook(lookId);
+			model.addAttribute("thisLook", thisLook);
+			return "addItemPage.jsp";
+		}
+	}
+
+	@PostMapping ("/add/item/{id}")
+	public String listItem(@Valid @ModelAttribute("item") Item item,
+							BindingResult result,
+							@PathVariable("id") Long lookId,
+							HttpSession session,Model model) {
+		Long sessionUser = (Long) session.getAttribute("user_id");
+		User thisUser = userService.findOne(sessionUser);
+		Look thisLookPost = lookService.findOneLook(lookId);
+
+		if (sessionUser == null) {
+			return "redirect:/user/login";
+		} else {
+			if(result.hasErrors()) {
+				Look thisLook = lookService.findOneLook(lookId);
+				model.addAttribute("thisLook", thisLook);
+				return "addItemPage.jsp";
+			} else {
+				item.setUser(thisUser);
+				item.setLook(thisLookPost);
+				itemService.saveItem(item);
+				return "redirect:/look/view/" + lookId;
+			}
+		}
+	}
+	
+	// ---- VIEW LOOK -----
+	
+	@GetMapping("/item/view/{id}")
+	public String viewItemPage(@PathVariable("id") Long itemID,
+								Model model) {
+		
+		// find this Item by item's id 
+		// add this Item's model is viewItemPage.jsp
+		Item thisItem = itemService.findItem(itemID);
+		model.addAttribute("thisItem", thisItem);
+		
+		// find all items that posted by this seller;
+		// add a list of those items to jsp
+		User thisUser = thisItem.getUser();
+		Long thisUserID = (long) thisUser.getId();
+		List<Item> allItemsByThisUser = itemService.allItemsFromThisUser(thisUserID);
+		model.addAttribute("allItemsByThisUser", allItemsByThisUser);
+		
+		return "viewItemPage.jsp";
+	}
+	
+}
