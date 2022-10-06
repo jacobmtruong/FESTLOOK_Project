@@ -9,3 +9,4 @@
 <img width="2148" alt="FestLook-viewProductPage" src="https://user-images.githubusercontent.com/103521402/194434695-20913a5c-31ee-4beb-a207-6ae42fd110c1.png">
 <img width="2152" alt="FestLook-registerPage" src="https://user-images.githubusercontent.com/103521402/194435162-67b40c88-a969-4656-be88-106965d5fd6e.png">
 <img width="2117" alt="FestLook-postNewLook" src="https://user-images.githubusercontent.com/103521402/194435269-36a3abb0-fac5-4991-8bd8-21e145ea5840.png">
+<img width="2331" alt="Screen Shot 2022-10-06 at 4 18 50 PM" src="https://user-images.githubusercontent.com/103521402/194435746-daa2599b-66ec-41c0-ae9d-6e85b042aa33.png">
