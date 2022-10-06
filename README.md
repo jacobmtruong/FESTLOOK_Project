@@ -7,3 +7,4 @@
 <img width="1932" alt="FestLook-editUser" src="https://user-images.githubusercontent.com/103521402/194434607-b544bd47-2e53-46ca-896e-56974ba77399.png">
 <img width="1916" alt="FestLook-listItemPage" src="https://user-images.githubusercontent.com/103521402/194434646-d5957724-7b0e-4992-afc3-c2017074d32c.png">
 <img width="2148" alt="FestLook-viewProductPage" src="https://user-images.githubusercontent.com/103521402/194434695-20913a5c-31ee-4beb-a207-6ae42fd110c1.png">
+<img width="2152" alt="FestLook-registerPage" src="https://user-images.githubusercontent.com/103521402/194435162-67b40c88-a969-4656-be88-106965d5fd6e.png">
