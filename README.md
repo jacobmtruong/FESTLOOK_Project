@@ -8,3 +8,4 @@
 <img width="1916" alt="FestLook-listItemPage" src="https://user-images.githubusercontent.com/103521402/194434646-d5957724-7b0e-4992-afc3-c2017074d32c.png">
 <img width="2148" alt="FestLook-viewProductPage" src="https://user-images.githubusercontent.com/103521402/194434695-20913a5c-31ee-4beb-a207-6ae42fd110c1.png">
 <img width="2152" alt="FestLook-registerPage" src="https://user-images.githubusercontent.com/103521402/194435162-67b40c88-a969-4656-be88-106965d5fd6e.png">
+<img width="2117" alt="FestLook-postNewLook" src="https://user-images.githubusercontent.com/103521402/194435269-36a3abb0-fac5-4991-8bd8-21e145ea5840.png">
